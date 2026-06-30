@@ -1,0 +1,105 @@
+# calculator_with_history.py
+# A simple calculator that saves calculation history
+
+import math
+
+history = []
+ # list to store past calculations
+
+def show_menu():
+    print("\n" + "="*40)
+    print("     advanced calculator with history  ")
+    print("="*40)
+    print("1. add (+)")
+    print("2. subtract (-)")
+    print("3. multiply (*)")
+    print("4. divide (/)")
+    print("5. power (^)")
+    print("6. square root (√)")
+    print("7. show history")
+    print("8. clear history")
+    print("9. Exit")
+    print("="*40)
+
+def get_number(prompt):
+    """get a valid float number from user"""
+    while True:
+        try:
+            return float(input(prompt))
+        except valueerror:
+            print("invalid input! please enter a number.")
+
+def add_to_history(operation, result):
+    """save calculation to history list"""
+    history.append(f"{operation} = {result}")
+    print(f"Result: {result}")
+
+def show_history():
+    """display all saved calculations"""
+    if not history:
+        print(" history is empty.")
+    else:
+        print("\n calculation_ history:")
+        for i, entry in enumerate(history, 1):
+            print(f"   {i}. {entry}")
+
+def clear_history():
+    """clear all history entries"""
+    history.clear()
+    print("  history cleared.")
+
+def main():
+    while True:
+        show_menu()
+        choice = input("choose an option (1-9): ")
+
+        if choice == '9':
+            print("goodbye!")
+            break
+
+        if choice == '7':
+            show_history()
+            continue
+
+        if choice == '8':
+            clear_history()
+            continue
+
+        if choice == '6':
+            num = get_number("enter the number: ")
+            if num < 0:
+                print("error: Cannot take square root of negative number!")
+            else:
+                result = math.sqrt(num)
+                add_to_history(f"√{num}", result)
+            continue
+
+        if choice in ['1', '2', '3', '4', '5']:
+            num1 = get_number("Enter first number: ")
+            num2 = get_number("enter second number: ")
+
+            if choice == '1':
+                result = num1 + num2
+                op = f"{num1} + {num2}"
+            elif choice == '2':
+                result = num1 - num2
+                op = f"{num1} - {num2}"
+            elif choice == '3':
+                result = num1 * num2
+                op = f"{num1} * {num2}"
+            elif choice == '4':
+                if num2 == 0:
+                    print("error: division by zero is not allowed!")
+                    continue
+                result = num1 / num2
+                op = f"{num1} / {num2}"
+            elif choice == '5':
+                result = num1 ** num2
+                op = f"{num1} ^ {num2}"
+
+            add_to_history(op, result)
+        else:
+            print(" invalid choice! please select 1-9.")
+
+if __name__ == "__main__":
+    main()
