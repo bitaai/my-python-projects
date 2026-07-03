@@ -1,0 +1,24 @@
+# Python Projects
+
+A collection of small Python projects I built to practice programming and build my portfolio.
+
+## Projects List
+
+1. **Calculator** – Basic arithmetic operations with error handling.
+2. **Prime Checker** – Check if a number is prime and list primes up to a limit.
+3. **Fibonacci** – Generate Fibonacci sequence using recursive and dynamic methods.
+4. **Temperature Converter** – Convert between Celsius, Fahrenheit, and Kelvin.
+5. **Text Analyzer** – Count characters, words, letters, digits, and punctuation in a text.
+6. **Guess the Number** – A simple number guessing game with hints.
+7. **Calculator with History** – Calculator that stores calculation history.
+8. **Contact Manager** – Add, view, search, and delete contacts with file storage.
+9. **To-Do List** – Task manager with file storage.
+10. **Password Generator** – Generate strong passwords with custom options.
+
+## How to Run
+
+Each project is inside its own folder. To run a project:
+
+```bash
+cd folder-name
+python filename.py
