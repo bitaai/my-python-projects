@@ -1,0 +1,66 @@
+# weather.py
+# Get current weather data from a free API
+
+import requests
+
+API_KEY = "bd5e378503939ddaee76f12ad7a97608"  # Free test key (openweathermap)
+BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
+
+def get_weather(city_name):
+    """fetch weather data from open weathermap API"""
+    params = {
+        "q": city_name,
+        "appid": API_KEY,
+        "units": "metric"
+    }
+    
+    try:
+        response = requests.get(BASE_URL, params=params, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        
+        weather_info = {
+            "city": data["name"],
+            "country": data["sys"]["country"],
+            "temperature": data["main"]["temp"],
+            "feels_like": data["main"]["feels_like"],
+            "humidity": data["main"]["humidity"],
+            "description": data["weather"][0]["description"],
+            "wind_speed": data["wind"]["speed"]
+        }
+        return weather_info
+    except requests.exceptions.RequestException as e:
+        return {"error": str(e)}
+    except KeyError:
+        return {"error": "invalid city name or no data found."}
+
+def show_weather(weather):
+    """display weather information"""
+    if "error" in weather:
+        print(f" error: {weather['error']}")
+        return
+    
+    print("\n" + "="*40)
+    print(f"  WEATHER IN {weather['city']}, {weather['country']}")
+    print("="*40)
+    print(f"  temperature: {weather['temperature']}°C")
+    print(f" feels like: {weather['feels_like']}°C")
+    print(f" humidity: {weather['humidity']}%")
+    print(f" description: {weather['description'].capitalize()}")
+    print(f"wind Speed: {weather['wind_speed']} m/s")
+    print("="*40)
+
+def main():
+    print("\n WEATHER APP")
+    print("="*40)
+    
+    city = input("enter city name: ").strip()
+    if not city:
+        print("city name cannot be empty.")
+        return
+    
+    weather = get_weather(city)
+    show_weather(weather)
+
+if __name__ == "__main__":
+    main()
