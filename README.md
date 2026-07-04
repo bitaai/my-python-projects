@@ -18,3 +18,16 @@ A simple command-line application that fetches and displays current weather data
 - Uses free OpenWeatherMap API
 
 ## How to run
+
+
+
+
+# News Scraper
+
+A simple command-line tool to fetch top headlines from NewsAPI.
+
+## Features
+- Get headlines by country and category
+- Display title, source, and URL for each article
+- Configurable number of results
+
