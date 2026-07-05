@@ -1,0 +1,129 @@
+length, weight, and volume
+
+def show_menu():
+    print("\n" + "="*40)
+    print("        UNIT CONVERTER")
+    print("="*40)
+    print("1. Length (meters, km, miles, feet)")
+    print("2. Weight (kg, g, pounds)")
+    print("3. olume (liters, ml, gallons)")
+    print("4. Exit")
+    print("="*40)
+
+def get_float(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print(" invalid input. Please enter a number.")
+
+def convert_length():
+    print("\n LENGTH CONVERSION")
+    print("Available units: meters, km, miles, feet")
+    value = get_float("Enter value: ")
+    from_unit = input("From unit: ").lower()
+    to_unit = input("To unit: ").lower()
+    
+   
+    if from_unit == "km":
+        value *= 1000
+    elif from_unit == "miles":
+        value *= 1609.34
+    elif from_unit == "feet":
+        value *= 0.3048
+    elif from_unit != "meters":
+        print("unknown unit.")
+        return
+    
+    
+    if to_unit == "km":
+        result = value / 1000
+    elif to_unit == "miles":
+        result = value / 1609.34
+    elif to_unit == "feet":
+        result = value / 0.3048
+    elif to_unit == "meters":
+        result = value
+    else:
+        print("unknown unit.")
+        return
+    
+    print(f"result: {result:.4f} {to_unit}")
+
+def convert_weight():
+    print("\n WEIGHT CONVERSION")
+    print("Available units: kg, g, pounds")
+    value = get_float("enter value: ")
+    from_unit = input("From unit: ").lower()
+    to_unit = input("To unit: ").lower()
+    
+    
+    if from_unit == "g":
+        value /= 1000
+    elif from_unit == "pounds":
+        value *= 0.453592
+    elif from_unit != "kg":
+        print("unknown unit.")
+        return
+    
+    
+    if to_unit == "g":
+        result = value * 1000
+    elif to_unit == "pounds":
+        result = value / 0.453592
+    elif to_unit == "kg":
+        result = value
+    else:
+        print("unknown unit.")
+        return
+    
+    print(f"result: {result:.4f} {to_unit}")
+
+def convert_volume():
+    print("\n  VOLUME CONVERSION")
+    print("Available units: liters, ml, gallons")
+    value = get_float("Enter value: ")
+    from_unit = input("From unit: ").lower()
+    to_unit = input("To unit: ").lower()
+    
+   
+    if from_unit == "ml":
+        value /= 1000
+    elif from_unit == "gallons":
+        value *= 3.78541
+    elif from_unit != "liters":
+        print("unknown unit.")
+        return
+    
+    
+    if to_unit == "ml":
+        result = value * 1000
+    elif to_unit == "gallons":
+        result = value / 3.78541
+    elif to_unit == "liters":
+        result = value
+    else:
+        print("unknown unit.")
+        return
+    
+    print(f"result: {result:.4f} {to_unit}")
+
+def main():
+    while True:
+        show_menu()
+        choice = input("choose an option (1-4): ")
+        
+        if choice == '4':
+            print("goodbye!")
+            break
+        elif choice == '1':
+            convert_length()
+        elif choice == '2':
+            convert_weight()
+        elif choice == '3':
+            convert_volume()
+        else:
+            print("invalid choice. Please select 1-4.")
+
+if __name__ == "__main__":
+    main()
