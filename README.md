@@ -31,3 +31,17 @@ A simple command-line tool to fetch top headlines from NewsAPI.
 - Display title, source, and URL for each article
 - Configurable number of results
 
+
+
+
+# GUI Calculator
+
+A simple graphical calculator built with Python's Tkinter library.
+
+## Features
+- Addition, subtraction, multiplication, division
+- Clear and Exit buttons
+- Error handling for invalid expression
+
+
+
