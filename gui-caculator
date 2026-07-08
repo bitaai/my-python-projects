@@ -1,0 +1,65 @@
+# gui_calculator.py
+# A simple GUI calculator using Tkinter
+
+import tkinter as tk
+
+def click_button(value):
+    current = entry.get()
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, current + value)
+
+def clear():
+    entry.delete(0, tk.END)
+
+def calculate():
+    try:
+        result = eval(entry.get())
+        entry.delete(0, tk.END)
+        entry.insert(tk.END, str(result))
+    except Exception:
+        entry.delete(0, tk.END)
+        entry.insert(tk.END, "Error")
+
+# Create main window
+root = tk.Tk()
+root.title("Simple Calculator")
+root.geometry("300x400")
+root.resizable(False, False)
+
+# Entry widget (display)
+entry = tk.Entry(root, font=("Arial", 20), justify="right", bd=10, relief=tk.RIDGE)
+entry.pack(fill=tk.BOTH, ipadx=8, pady=10, padx=10)
+
+# Button layout
+buttons = [
+    ('7', '8', '9', '/'),
+    ('4', '5', '6', '*'),
+    ('1', '2', '3', '-'),
+    ('0', '.', '=', '+')
+]
+
+frame = tk.Frame(root)
+frame.pack()
+
+for row in buttons:
+    row_frame = tk.Frame(frame)
+    row_frame.pack(side=tk.TOP, fill=tk.X)
+    for char in row:
+        if char == '=':
+            btn = tk.Button(row_frame, text=char, font=("Arial", 14), width=6, height=2,
+                            command=calculate, bg="lightblue")
+        else:
+            btn = tk.Button(row_frame, text=char, font=("Arial", 14), width=6, height=2,
+                            command=lambda c=char: click_button(c))
+        btn.pack(side=tk.LEFT, padx=2, pady=2)
+
+# Clear and Exit buttons
+clear_btn = tk.Button(root, text="Clear", font=("Arial", 14), width=10, height=2,
+                      command=clear, bg="lightcoral")
+clear_btn.pack(pady=5)
+
+exit_btn = tk.Button(root, text="Exit", font=("Arial", 14), width=10, height=2,
+                     command=root.quit, bg="lightgray")
+exit_btn.pack(pady=5)
+
+root.mainloop()
