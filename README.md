@@ -45,3 +45,14 @@ A simple graphical calculator built with Python's Tkinter library.
 
 
 
+# Alarm Clock
+
+A simple command-line alarm clock that plays a sound when the set time is reached.
+
+## Features
+- Set hour and minute
+- Plays a system beep or sound when alarm triggers
+- Works on Windows, Linux, and macOS
+- Handles user interruption (Ctrl+C)
+
+## How to run
