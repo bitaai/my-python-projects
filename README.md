@@ -56,3 +56,16 @@ A simple command-line alarm clock that plays a sound when the set time is reache
 - Handles user interruption (Ctrl+C)
 
 ## How to run
+
+
+
+# File Organizer
+
+A command-line tool that organizes files in a folder by their extensions.
+
+## Features
+- Automatically sorts files into subfolders: Images, Documents, Archives, Videos, Music, Programs, and Others
+- Creates folders if they don't exist
+- Handles unknown file types gracefully
+
+## How to run
