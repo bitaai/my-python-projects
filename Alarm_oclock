@@ -1,0 +1,61 @@
+# alarm_clock.py
+# a simple alarm clock that plays a sound at a set time
+
+import datetime
+import time
+import os
+import sys
+
+def play_sound():
+    """Play a system beep or sound"""
+    if sys.platform == "win32":
+        import winsound
+        winsound.Beep(1000, 2000)  # Frequency 1000Hz, duration 2000ms
+    else:
+        # for Linux/Mac – print bell character
+        print("\a")  # ASCII bell
+        # optional: use 'playsound' library if installed
+        try:
+            from playsound import playsound
+            playsound("alarm_sound.mp3")  # you can add a sound file
+        except:
+            pass  # silently fail if no sound file or library
+
+def set_alarm():
+    """get alarm time from user"""
+    while True:
+        try:
+            alarm_hour = int(input("Enter hour (0-23): "))
+            alarm_minute = int(input("Enter minute (0-59): "))
+            if 0 <= alarm_hour <= 23 and 0 <= alarm_minute <= 59:
+                return alarm_hour, alarm_minute
+            else:
+                print(" invalid time. Please enter values in range.")
+        except ValueError:
+            print(" please enter valid numbers.")
+
+def main():
+    print("\n" + "="*40)
+    print("        ALARM CLOCK")
+    print("="*40)
+    
+    hour, minute = set_alarm()
+    
+    print(f" alarm set for {hour:02d}:{minute:02d}")
+    print("waiting for alarm... (Press Ctrl+C to cancel)")
+    
+    try:
+        while True:
+            now = datetime.datetime.now()
+            if now.hour == hour and now.minute == minute:
+                print("\n ALARM! Time to wake up!")
+                play_sound()
+                break
+            time.sleep(30)  # check every 30 seconds
+    except keyboardInterrupt:
+        print("\n alarm cancelled by user.")
+    except exception as e:
+        print(f" an error occurred: {e}")
+
+if __name__ == "__main__":
+    main()
