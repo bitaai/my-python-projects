@@ -69,3 +69,17 @@ A command-line tool that organizes files in a folder by their extensions.
 - Handles unknown file types gracefully
 
 ## How to run
+
+
+
+# Palindrome Checker
+
+A command-line tool to check if a word or sentence is a palindrome (reads the same forward and backward).
+
+## Features
+- Ignores spaces, punctuation, and case
+- Supports English and Persian/Arabic scripts (with alphanumeric support)
+- Loop until user types 'exit'
+
+## How to run
+```bash
