@@ -1,0 +1,43 @@
+# palindrome_checker.py
+# Check if a word or sentence is a palindrome
+
+import re
+
+def is_palindrome(text):
+    """
+    Check if a string is a palindrome.
+    Ignores case, spaces, and punctuation.
+    """
+    # Clean the text: remove non-alphanumeric characters and convert to lowercase
+    cleaned = re.sub(r'[^a-zA-Z0-9]', '', text)
+    cleaned = cleaned.lower()
+    
+    # Check if the cleaned string equals its reverse
+    return cleaned == cleaned[::-1]
+
+def main():
+    print("\n" + "="*40)
+    print("        PALINDROME CHECKER")
+    print("="*40)
+    print("enter a word or sentence to check if it's a palindrome.")
+    print("(Spaces, punctuation, and case are ignored.)")
+    print("="*40)
+    
+    while True:
+        text = input("\nenter text (or 'exit' to quit): ").strip()
+        
+        if text.lower() == 'exit':
+            print(" goodbye!")
+            break
+        
+        if not text:
+            print(" please enter some text.")
+            continue
+        
+        if is_palindrome(text):
+            print(f" '{text}' IS a palindrome.")
+        else:
+            print(f" '{text}' is NOT a palindrome.")
+
+if __name__ == "__main__":
+    main()
