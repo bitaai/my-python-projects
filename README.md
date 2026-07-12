@@ -83,3 +83,20 @@ A command-line tool to check if a word or sentence is a palindrome (reads the sa
 
 ## How to run
 ```bash
+
+
+
+# Web Scraper
+
+A simple web scraper that fetches headlines from BBC News using BeautifulSoup.
+
+## Features
+- Scrapes headlines from a real news website
+- Handles HTTP errors and parsing issues
+- Easy to modify for other websites
+
+## How to run
+
+python web_scraper.py
+
+
