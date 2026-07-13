@@ -1,0 +1,43 @@
+# digital_clock.py
+# A simple digital clock with date and time using tkinter
+
+import tkinter as tk
+import datetime
+import time
+
+def update_clock():
+    """Update the time and date every second"""
+    now = datetime.datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    current_date = now.strftime("%A, %B %d, %Y")
+    
+    time_label.config(text=current_time)
+    date_label.config(text=current_date)
+    
+    # Update every 1000ms (1 second)
+    root.after(1000, update_clock)
+
+# Create main window
+root = tk.Tk()
+root.title("Digital Clock")
+root.geometry("400x200")
+root.resizable(False, False)
+root.configure(bg="black")
+
+# Time label (large, bold)
+time_label = tk.Label(root, font=("Arial", 60, "bold"), bg="black", fg="lime")
+time_label.pack(pady=10)
+
+# Date label (medium)
+date_label = tk.Label(root, font=("Arial", 20), bg="black", fg="white")
+date_label.pack(pady=5)
+
+# Exit button
+exit_btn = tk.Button(root, text="Exit", font=("Arial", 14), 
+                     command=root.quit, bg="gray", fg="white")
+exit_btn.pack(pady=10)
+
+# Start the clock
+update_clock()
+
+root.mainloop()
