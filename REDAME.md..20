@@ -1,0 +1,12 @@
+# BMI Calculator
+
+A command-line tool to calculate Body Mass Index (BMI) based on weight and height.
+
+## Features
+- Calculates BMI using metric units (kg, meters)
+- Provides weight category: Underweight, Normal, Overweight, Obese
+- Error handling for invalid inputs
+
+## How to run
+```bash
+python bmi_calculator.py
