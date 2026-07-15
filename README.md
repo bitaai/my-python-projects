@@ -86,6 +86,16 @@ A command-line tool to check if a word or sentence is a palindrome (reads the sa
 
 
 
+
+
+
+
+
+
+
+
+
+
 # Web Scraper
 
 A simple web scraper that fetches headlines from BBC News using BeautifulSoup.
@@ -98,5 +108,23 @@ A simple web scraper that fetches headlines from BBC News using BeautifulSoup.
 ## How to run
 
 python web_scraper.py
+
+
+
+# Word Guessing Game
+
+A simple Hangman-style word guessing game.
+
+## Features
+- Random word selection from a list
+- Tracks guessed letters and remaining attempts
+- Displays the word with underscores for unguessed letters
+- Win/lose conditions
+
+## How to run
+```bash
+python word_guessing_game.py
+
+
 
 
