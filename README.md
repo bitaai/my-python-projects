@@ -126,5 +126,15 @@ A simple Hangman-style word guessing game.
 python word_guessing_game.py
 
 
+ Caesar Cipher Tool
+
+A command-line tool for encrypting and decrypting text using the Caesar cipher.
+
+Features
+- Encrypt text with a custom shift value (1-25)
+- Decrypt text by reversing the shift
+- Preserves spaces and punctuation
+- Supports both uppercase and lowercase letters
+
 
 
