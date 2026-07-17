@@ -1,0 +1,42 @@
+
+
+import time
+import sys
+
+def countdown(t):
+    """Countdown timer that displays remaining time"""
+    while t:
+        mins, secs = divmod(t, 60)
+        timer = f"{mins:02d}:{secs:02d}"
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
+    print(" time's up!")
+
+def play_sound():
+    """Play a beep sound"""
+    if sys.platform == "win32":
+        import winsound
+        winsound.Beep(1000, 2000)
+    else:
+        print("\a")  # ASCII bell
+
+def main():
+    print("\n" + "="*40)
+    print("        COUNTDOWN TIMER")
+    print("="*40)
+    
+    try:
+        seconds = int(input("Enter time in seconds: "))
+        if seconds <= 0:
+            print(" please enter a positive number.")
+            return
+    except ValueError:
+        print(" please enter a valid number.")
+        return
+    
+    countdown(seconds)
+    play_sound()
+
+if __name__ == "__main__":
+    main()
