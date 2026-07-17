@@ -138,3 +138,11 @@ Features
 
 
 
+A simple countdown timer that shows remaining time in MM:SS format.
+
+- Displays time in minutes and seconds
+- Plays a sound when time is up
+- Works on Windows, Linux, and macOS
+
+
+
