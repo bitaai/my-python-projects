@@ -1,0 +1,80 @@
+
+
+def create_matrix(rows, cols):
+    """Create a matrix by taking user input"""
+    matrix = []
+    print(f"Enter {rows}x{cols} matrix values row by row:")
+    for i in range(rows):
+        row = []
+        for j in range(cols):
+            while True:
+                try:
+                    val = float(input(f"Enter value for row {i+1}, col {j+1}: "))
+                    row.append(val)
+                    break
+                except ValueError:
+                    print(" invalid input. Please enter a number.")
+        matrix.append(row)
+    return matrix
+
+def print_matrix(matrix):
+    """Print a matrix in a readable format"""
+    for row in matrix:
+        print("  ".join(f"{val:6.2f}" for val in row))
+
+def add_matrices(A, B):
+    """Add two matrices"""
+    rows = len(A)
+    cols = len(A[0])
+    return [[A[i][j] + B[i][j] for j in range(cols)] for i in range(rows)]
+
+def subtract_matrices(A, B):
+    """Subtract matrix B from matrix A"""
+    rows = len(A)
+    cols = len(A[0])
+    return [[A[i][j] - B[i][j] for j in range(cols)] for i in range(rows)]
+
+def scalar_multiply(matrix, scalar):
+    """Multiply a matrix by a scalar"""
+    return [[val * scalar for val in row] for row in matrix]
+
+def main():
+    print("\n" + "="*40)
+    print("        MATRIX CALCULATOR")
+    print("="*40)
+    
+    try:
+        rows = int(input("Enter number of rows: "))
+        cols = int(input("Enter number of columns: "))
+        if rows <= 0 or cols <= 0:
+            print(" rows and columns must be positive numbers.")
+            return
+    except ValueError:
+        print(" invalid input.")
+        return
+    
+    print("\n Matrix A:")
+    A = create_matrix(rows, cols)
+    print("\n Matrix B:")
+    B = create_matrix(rows, cols)
+    
+    print("\n MATRIX A:")
+    print_matrix(A)
+    print("\n MATRIX B:")
+    print_matrix(B)
+    
+    print("\n A + B:")
+    print_matrix(add_matrices(A, B))
+    
+    print("\n A - B:")
+    print_matrix(subtract_matrices(A, B))
+    
+    try:
+        scalar = float(input("\nEnter a scalar value for multiplication: "))
+        print(f"\n A × {scalar}:")
+        print_matrix(scalar_multiply(A, scalar))
+    except ValueError:
+        print(" invalid scalar input.")
+
+if __name__ == "__main__":
+    main()
