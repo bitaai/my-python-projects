@@ -76,31 +76,18 @@ A command-line tool that organizes files in a folder by their extensions.
 
 A command-line tool to check if a word or sentence is a palindrome (reads the same forward and backward).
 
-## Features
+ Features
 - Ignores spaces, punctuation, and case
 - Supports English and Persian/Arabic scripts (with alphanumeric support)
 - Loop until user types 'exit'
 
-## How to run
-```bash
 
 
 
-
-
-
-
-
-
-
-
-
-
-# Web Scraper
 
 A simple web scraper that fetches headlines from BBC News using BeautifulSoup.
 
-## Features
+# Features
 - Scrapes headlines from a real news website
 - Handles HTTP errors and parsing issues
 - Easy to modify for other websites
@@ -145,4 +132,14 @@ A simple countdown timer that shows remaining time in MM:SS format.
 - Works on Windows, Linux, and macOS
 
 
+# Matrix Calculator
 
+A command-line tool for basic matrix operations.
+
+Features
+- Matrix addition
+- Matrix subtraction
+- Scalar multiplication
+- Displays matrices in a formatted way
+
+# How to run
