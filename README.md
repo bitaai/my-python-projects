@@ -142,4 +142,11 @@ Features
 - Scalar multiplication
 - Displays matrices in a formatted way
 
-# How to run
+Face Detection
+
+A simple face and eye detection tool using OpenCV.
+ Features
+- Detects faces in an image
+- Detects eyes within each detected face
+- Draws rectangles around faces (blue) and eyes (green)
+
