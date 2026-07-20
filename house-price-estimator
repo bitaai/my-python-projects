@@ -1,0 +1,35 @@
+
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+def train_model():
+    """Train a simple linear regression model with sample data"""
+    # Sample data: size (sqm) -> price (in million units)
+    X = np.array([50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200]).reshape(-1, 1)
+    y = np.array([150, 180, 210, 240, 270, 300, 360, 420, 480, 540, 600])
+    
+    model = LinearRegression()
+    model.fit(X, y)
+    return model
+
+def main():
+    print("\n" + "="*40)
+    print("        HOUSE PRICE ESTIMATOR")
+    print("="*40)
+    print(" based on sample data (size vs price)")
+    
+    model = train_model()
+    
+    try:
+        size = float(input("\nEnter house size in sqm: "))
+        if size <= 0:
+            print(" size must be positive.")
+            return
+        predicted_price = model.predict([[size]])[0]
+        print(f" estimated price: {predicted_price:.2f} million units")
+    except ValueError:
+        print(" please enter a valid number.")
+
+if __name__ == "__main__":
+    main()
