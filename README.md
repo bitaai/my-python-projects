@@ -150,3 +150,13 @@ A simple face and eye detection tool using OpenCV.
 - Detects eyes within each detected face
 - Draws rectangles around faces (blue) and eyes (green)
 
+
+House Price Estimator
+
+A simple linear regression model that estimates house prices based on size (sqm).
+
+- Trains on sample data
+- Predicts price for a given size
+- Uses scikit-learn for regression
+
+
