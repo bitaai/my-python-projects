@@ -1,0 +1,40 @@
+
+
+import folium
+
+def create_map():
+    """Create a map with marked locations in Iran"""
+    
+    map_iran = folium.Map(location=[32.5, 54.5], zoom_start=6)
+    
+    
+    cities = {
+        "Tehran": [35.6892, 51.3890],
+        "Mashhad": [36.2605, 59.6168],
+        "Isfahan": [32.6546, 51.6670],
+        "Shiraz": [29.5918, 52.5837],
+        "Tabriz": [38.0800, 46.2919]
+    }
+    
+    
+    for city, coords in cities.items():
+        folium.Marker(
+            location=coords,
+            popup=city,
+            icon=folium.Icon(color="blue", icon="info-sign")
+        ).add_to(map_iran)
+    
+  
+    map_iran.save("iran_map.html")
+    print(" map created: iran_map.html")
+
+def main():
+    print("\n" + "="*40)
+    print("        INTERACTIVE MAP")
+    print("="*40)
+    print("Creating a map of Iran with major cities...")
+    create_map()
+    print(" Open iran_map.html in your browser to view it.")
+
+if __name__ == "__main__":
+    main()
