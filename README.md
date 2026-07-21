@@ -159,4 +159,12 @@ A simple linear regression model that estimates house prices based on size (sqm)
 - Predicts price for a given size
 - Uses scikit-learn for regression
 
+# Interactive Map
+
+An interactive map of Iran with markers for major cities using Folium.
+
+## Features
+- Displays major cities (Tehran, Mashhad, Isfahan, Shiraz, Tabriz)
+- Click on markers to see city names
+- Exported as an HTML file
 
