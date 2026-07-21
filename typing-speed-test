@@ -1,0 +1,64 @@
+
+
+import time
+import random
+
+def get_sentence():
+    """Return a random sentence from a list"""
+    sentences = [
+        "The quick brown fox jumps over the lazy dog.",
+        "Python is a powerful programming language.",
+        "Practice makes perfect in coding.",
+        "OpenAI develops advanced artificial intelligence.",
+        "Learning new skills takes time and effort."
+    ]
+    return random.choice(sentences)
+
+def typing_test():
+    """Run a typing speed test"""
+    sentence = get_sentence()
+    print("\n type the following sentence:")
+    print(f"\n   {sentence}\n")
+    
+    input("Press Enter to start...")
+    start_time = time.time()
+    
+    user_input = input("Type here: ")
+    
+    end_time = time.time()
+    elapsed = end_time - start_time
+    
+    # Calculate accuracy
+    correct = 0
+    min_len = min(len(sentence), len(user_input))
+    for i in range(min_len):
+        if sentence[i] == user_input[i]:
+            correct += 1
+    
+    accuracy = (correct / len(sentence)) * 100 if sentence else 0
+    
+    # Calculate speed (words per minute)
+    words = len(user_input.split())
+    minutes = elapsed / 60
+    wpm = words / minutes if minutes > 0 else 0
+    
+    print("\n RESULTS:")
+    print(f" time: {elapsed:.2f} seconds")
+    print(f" accuracy: {accuracy:.1f}%")
+    print(f" speed: {wpm:.1f} WPM (words per minute)")
+
+def main():
+    print("\n" + "="*40)
+    print("        TYPING SPEED TEST")
+    print("="*40)
+    
+    while True:
+        typing_test()
+        
+        again = input("\n try again? (y/n): ").lower()
+        if again != 'y':
+            print(" goodbye!")
+            break
+
+if __name__ == "__main__":
+    main()
