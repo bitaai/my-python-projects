@@ -168,3 +168,16 @@ An interactive map of Iran with markers for major cities using Folium.
 - Click on markers to see city names
 - Exported as an HTML file
 
+# Telegram Bot
+
+A simple Telegram bot that echoes messages.
+
+## Features
+- Responds to /start with a welcome message
+- Replies with "You said: ..." to any text message
+
+## How to run
+```bash
+python telegram_bot
+
+
