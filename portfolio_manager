@@ -1,0 +1,36 @@
+
+
+import os
+
+def load_projects():
+    """Load project names from folders in the current directory"""
+    projects = []
+    for item in os.listdir():
+        if os.path.isdir(item) and item.startswith("day"):
+            projects.append(item)
+    return sorted(projects)
+
+def display_portfolio():
+    """Display a list of all projects"""
+    print("\n" + "="*50)
+    print("         MY 30-DAY PROJECT PORTFOLIO")
+    print("="*50)
+    
+    projects = load_projects()
+    
+    if not projects:
+        print(" no projects found in the current directory.")
+        return
+    
+    print(f" total Projects: {len(projects)}\n")
+    for idx, project in enumerate(projects, 1):
+        print(f"{idx:2}. {project}")
+
+def main():
+    print("\n welcome to your Project Portfolio Manager!")
+    display_portfolio()
+    print("\n congratulations on completing 30 days of coding!")
+    print(" you are now ready for job applications and interviews.")
+
+if __name__ == "__main__":
+    main()
