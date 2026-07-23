@@ -181,3 +181,15 @@ A simple Telegram bot that echoes messages.
 python telegram_bot
 
 
+# Portfolio Manager
+
+A simple tool to display all projects from your 30-day coding challenge.
+
+## Features
+- Lists all project folders (day1 to day30)
+- Counts total projects
+- Displays a clean summary
+
+## How to run
+```bash
+python portfolio_manager.py
